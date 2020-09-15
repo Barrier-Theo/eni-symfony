@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Idea Detail | {{ parent() }}{% endblock %}
+
+{% block main %}
+<h2> Idea Detail</h2>
+    <div class="card" style="width: 50em;">
+        <div class="card-body">
+            <h5 class="card-title">{{idea.title}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{idea.author}}</h6>
+            <p class="card-text">{{idea.description}}</p>
+            <a href="#" class="card-link">{{idea.dateCreated | date('d/m/y') }}</a>
+        </div>
+    </div>
+{% endblock %}

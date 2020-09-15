@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}List of ideas | {{ parent() }}{% endblock %}
+
+{% block main %}
+<h2> List of ideas!</h2>
+    <ul class="list-group">
+    {% for idea in ideas %}
+        <li class="list-group-item"><a href="{{ path("idea_detail", { id: idea.id}) }}">{{  idea.title }}</a></li>
+    {% endfor %}
+    <ul>
+{% endblock %}

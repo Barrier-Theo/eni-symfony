@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{%  block main %}
+{# {% set colors =  ['red','blue', 'yellow'] %} #}
+
+<ul>
+    {% for color in colors %}
+        {% if color != 'red' %}
+           <li> {{ color | upper}} </li>
+        {% endif %}
+    {% endfor %}
+</ul>
+{%  endblock %}
+
