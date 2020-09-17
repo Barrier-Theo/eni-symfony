@@ -2,12 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\IdeaRepository;
+use App\Entity\Category as Category;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass=IdeaRepository::class)
+ * @ORM\Entity(repositoryClass="App\Repository\IdeaRepository")
  */
 class Idea
 {
@@ -49,6 +49,31 @@ class Idea
      * @ORM\Column(type="date")
      */
     private $dateCreated;
+
+
+    /**
+     * @var Category
+     * @ORM\ManyToOne(targetEntity="\App\Entity\Category", inversedBy="ideas")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $category;
+
+
+    /**
+     * @return Category
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param Category $category
+     */
+    public function setCategory(Category $category)
+    {
+        $this->category = $category;
+    }
 
     /**
      * @return mixed

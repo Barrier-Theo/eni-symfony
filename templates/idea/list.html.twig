@@ -7,6 +7,8 @@
     <ul class="list-group">
     {% for idea in ideas %}
         <li class="list-group-item"><a href="{{ path("idea_detail", { id: idea.id}) }}">{{  idea.title }}</a></li>
+    {% else %}
+        <li class="alert alert-warning">No idea was created</li>
     {% endfor %}
     <ul>
 {% endblock %}
