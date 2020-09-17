@@ -54,7 +54,7 @@ class IdeaController extends AbstractController
             $em->persist($idea);
             $em->flush();
 
-            $this->addFlash("succes", 'The idea has been saved !');
+            $this->addFlash("success", 'The idea has been saved !');
             return $this->redirectToRoute('idea_detail', ['id' => $idea->getId()] );
         }
         return $this->render('idea/add.html.twig',[
