@@ -6,9 +6,9 @@
 <h2> List of ideas!</h2>
     <ul class="list-group">
     {% for idea in ideas %}
-        <li class="list-group-item"><a href="{{ path("idea_detail", { id: idea.id}) }}">{{  idea.title }}</a></li>
+        <li class="list-group-item"><a href="{{ path("idea_detail", { id: idea.id}) }}">{{  idea.title }} | {{ idea.category.name }}</a></li>
     {% else %}
         <li class="alert alert-warning">No idea was created</li>
     {% endfor %}
-    <ul>
+    <ul>s
 {% endblock %}
