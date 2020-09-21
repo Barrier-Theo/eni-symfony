@@ -4,10 +4,16 @@
             <a class="navbar-brand" href="#">BucketList</a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="{{ path('home') }}">home</a></li>
-            <li><a href="{{ path('idea_add') }}">add</a></li>
-            <li><a href="{{ path('idea_list') }}">list</a></li>
-            <li><a href="{{ path('main_about_us') }}">about-us</a></li>
+            <li class="active"><a href="{{ path('home') }}">Home</a></li>
+            <li><a href="{{ path('idea_add') }}">Add</a></li>
+            <li><a href="{{ path('idea_list') }}">List</a></li>
+            <li><a href="{{ path('main_about_us') }}">About-us</a></li>
+            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                <li><a href="{{ path('logout') }}">logout</a></li>
+            {% else %}
+                <li><a href="{{ path('login') }}">Login</a></li>
+                <li><a href="{{ path('user_register') }}">Register</a></li>
+            {% endif %}
         </ul>
     </div>
 </nav>
