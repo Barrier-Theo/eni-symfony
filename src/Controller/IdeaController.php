@@ -43,9 +43,6 @@ class IdeaController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function add(EntityManagerInterface $em, Request $request){
-        //Redirect login if user doesnt have role user
-        $this->denyAccessUnlessGranted("ROLE_USER");
-
         $idea = new Idea();
         $idea->setDateCreated(new \DateTime());
         $idea->setIsPublished(1);
