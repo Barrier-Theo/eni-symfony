@@ -46,6 +46,7 @@ class IdeaController extends AbstractController
         $idea = new Idea();
         $idea->setDateCreated(new \DateTime());
         $idea->setIsPublished(1);
+        $idea->setAuthor($this->getUser()->getUsername());
 
         $ideaForm =  $this->createForm(IdeaType::class, $idea);
 
