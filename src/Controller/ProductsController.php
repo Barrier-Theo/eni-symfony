@@ -14,10 +14,10 @@ class ProductsController extends AbstractController
      */
     public function index(Request $request)
     {
-        $params= $request->query->all();
-        return $this->json([
-            'name'=> 'TV',
-            'params' => $params
-        ]);
+        $params= json_decode($request->getContent());
+        dump($request->getContent());
+        return $this->json(
+            $params
+        );
     }
 }
