@@ -8,7 +8,7 @@ use JMS\Serializer\Annotation as Serializer;
 
 /**
  * @ORM\Entity(repositoryClass=ProductRepository::class)
- * @Serializer\ExclusionPolicy("ALL")
+ *
  */
 class Product
 {
@@ -16,23 +16,25 @@ class Product
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Serializer\Expose()
+     * @Serializer\Groups({"list"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Serializer\Expose()
+     * @Serializer\Groups({"list", "detail"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="text")
+     * @Serializer\Groups({"detail"})
      */
     private $description;
 
     /**
      * @ORM\Column(type="decimal", precision=10, scale=2)
+     * @Serializer\Groups({"detail"})
      */
     private $price;
 

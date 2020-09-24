@@ -14,9 +14,23 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class ProductRepository extends ServiceEntityRepository
 {
+    use Pageable;
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Product::class);
+    }
+
+    public function getFilteredProducts($keyword = "", $page){
+        $query = $this->getEntityManager()->createQuery('
+            SELECT p
+            FROM App\Entity\Product p
+            WHERE p.name LIKE :keyword
+            OR p.description LIKE :keyword
+        '
+        );
+        $query->setParameter('keyword', "%$keyword%");
+
+        return $this->paginate($query, $page);
     }
 
     // /**
