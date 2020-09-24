@@ -172,3 +172,9 @@ fabric.properties
 /web/css/
 /web/js/
 
+
+###> symfony/phpunit-bridge ###
+.phpunit
+.phpunit.result.cache
+/phpunit.xml
+###< symfony/phpunit-bridge ###
